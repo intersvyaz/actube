@@ -5,8 +5,8 @@ all:
 	$(MAKE) -C cipwap
 	$(MAKE) -C cisco
 	$(MAKE) -C fortinet
-	$(CC) -c modload_ac.c -I../
-	$(CC) -c modload_wtp.c -I../
+	$(CC) -c modload_ac.c -I../ $(CFLAGS)
+	$(CC) -c modload_wtp.c -I../ $(CFLAGS)
 
 clean:
 	$(MAKE) -C capwap clean

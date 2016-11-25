@@ -34,15 +34,15 @@ LIBS+=-lcipwap
 LIBS+=-lcisco
 LIBS+=-lfortinet
 LIBS+=-lcw
-LIBS+=-lnl-3
-LIBS+=-lnl-genl-3
+LIBS+=-Wl,-Bstatic -lnl-3
+LIBS+=-Wl,-Bstatic -lnl-genl-3
 LIBS+=-ljsmn
 
 
 
 ifeq ($(CONF_LIBRARY),UCI)
 CFLAGS+=-DWITH_UCI
-LIBS+=-luci -lubox
+LIBS+=-Wl,-Bdynamic -luci -Wl,-Bdynamic -lubox
 CONFOBJS += conf_uci.o 
 else
 LIBS+=-lconfuse
@@ -125,7 +125,10 @@ Q=
 E=true
 endif
 
+
+
 %.o: %.c
+	@echo $(CFLAGS)
 	@$(E) "  CC " $<
 	$(Q)$(CC) -c -o $@ $(CFLAGS) $<
 

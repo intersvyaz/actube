@@ -4,7 +4,7 @@ OPENSSL_CFLAGS=../contrib/${OPENSSL_VERSION}/include/
 else
 OPENSSL_LDFLAGS=
 OPENSSL_CFLAGS=
-OPENSSL_LIBS=-lssl -lcrypto -ldl
+OPENSSL_LIBS=-Wl,-Bstatic -lssl -Wl,-Bstatic -lcrypto -Wl,-Bdynamic -ldl
 endif
 
 ifeq ($(USE_CONTRIB_GNUTLS),1)

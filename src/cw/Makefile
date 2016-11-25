@@ -332,7 +332,7 @@ OBJS:=$(patsubst %.o,$(ARCH)/%.o,$(OBJS))
 
 
 
-CFLAGS = -Wall -g -O0 -D_REENTRANT -DWITH_IPV6 -DWITH_RMAC_SUPPORT -I /usr/local/include -I../
+CFLAGS := -Wall -g -O0 -D_REENTRANT -DWITH_IPV6 -DWITH_RMAC_SUPPORT -I../ $(CFLAGS)
 #CFLAGS = -Wall  -Os -D_REENTRANT -DWITH_IPV6 -DWITH_RMAC_SUPPORT -I/usr/local/include
 
 CFLAGS += $(GNUTLS_CFLAGS) \
